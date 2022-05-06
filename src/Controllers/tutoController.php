@@ -76,8 +76,9 @@ class tutoController extends abstractController
         $tutos = [];
 
         $manager = new TutoManager();
-
-        if(isset($_GET["page"])){
+        if(isset($_GET["page"]) && isset($_GET["orderby"])){
+            $tutos = $manager->findAll($_GET["page"], $_GET["orderby"]);
+        }else if(isset($_GET["page"])){
             $page = $_GET["page"];
             $tutos = $manager->findAll($page);
         }else{

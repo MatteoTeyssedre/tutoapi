@@ -9,7 +9,7 @@ define('MOT_DE_PASSE', '');         // Password sur la BDD
 
 // Chemin vers votre application ////////////////////////////////////////
 
-define('PATH', 'bucket/tutoapi/');
+define('PATH', 'bucket/tutoapi/tutoapi/');
 // Si votre application est dans ce dossier : 'C:\xampp\htdocs\works\bugApp\', le PATH est 'works/bugApp/'.
 // Pas de slash au début.
 // Un slash à la fin.

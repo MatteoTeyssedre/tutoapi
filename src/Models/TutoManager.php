@@ -90,14 +90,19 @@ class TutoManager extends Manager
         return $result;
     }
 
-    public function findAll($page = 0)
+    public function findAll($page = 0, $title = "")
     {
 
         // Connexion à la BDD
         $dbh = static::connectDb();
 
         // Requête
-        if( $page == 0 ){
+        if($title != ""&& $page != 0){
+            $page = $page * 5 - 5;
+            $sql = 'SELECT * FROM `tutos` order by title ASC LIMIT 5 OFFSET :page ';
+            $sth= $dbh->prepare($sql);
+            $sth->bindParam(':page', $page, \PDO::PARAM_INT);
+        }else if( $page == 0 ){
             $sth = $dbh->prepare('SELECT * FROM tutos');
         }else{
             $page = $page * 5 - 5;

@@ -8,7 +8,6 @@ use tutoAPI\Controllers\tutoController;
 $length = strlen(BASE_PATH) + 1;
 $uri = substr($_SERVER['REQUEST_URI'], $length) ;
 $method = $_SERVER['REQUEST_METHOD'];
-
 switch(true) {
 
     case preg_match('#^tutos/(\d+)$#', $uri, $matches) && $method == 'GET':
